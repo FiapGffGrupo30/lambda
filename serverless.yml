@@ -1,0 +1,58 @@
+app: service-cognito
+service: service-cognito
+frameworkVersion: "3"
+useDotenv: true
+
+plugins:
+  - serverless-offline
+  - serverless-plugin-typescript
+
+provider:
+  httpApi:
+    cors:
+      allowedOrigins:
+        - '*'
+      allowedHeaders:
+        - Content-Type
+        - Access-Control-Allow-Origin
+        - Access-Control-Allow-Headers
+        - Access-Control-Allow-Methods
+      allowedMethods:
+        - GET
+        - POST
+        - PUT
+  logs:
+    httpApi: true
+
+  name: aws
+  runtime: nodejs18.x
+  timeout: 30
+  region: us-east-1
+  stage: dev
+  iam.role.statements:
+  - Effect: Allow
+    Action:
+      - cognito-idp:AdminInitiateAuth
+      - cognito-idp:AdminCreateUser
+      - cognito-idp:AdminSetUserPassword
+      - cognito-idp:AdminGetUser
+    Resource: '*'
+ 
+  environment:
+    CLIENTES_POOL_ID: { Ref: UserPool }
+    CLIENTES_POOL_CLIENT_ID: { Ref: UserClient }
+    CLIENTES_IDENTITY_POOL_ID: { Ref:  CognitoIdentityPool }
+
+functions:
+  validaCadastraCliente:
+    handler: src/functions/validaCadastraCliente.handler
+    events:
+      - httpApi:
+          path: /api/validaCadastraCliente
+          method: post
+
+resources:
+  # Cognito
+  - ${file(resources/cognito-user-pool.yml)}
+  - ${file(resources/cognito-identity-pool.yml)}
+
