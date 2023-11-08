@@ -12,11 +12,20 @@ async function handler (event: APIGatewayEvent) {
   if (!validateCPF(cpf)) {
     return sendResponse(400, 'cpf inválido');
   }
+  
+  console.log("cpf: " + cpf);
+  console.log("process.env.CLIENTES_POOL_ID: " + process.env.CLIENTES_POOL_ID);
 
   const clientData: UserConfirmationData = {
     Username: cpf,
     UserPoolId: process.env.CLIENTES_POOL_ID
   }
+
+  console.log("cpf: " + cpf);
+  console.log("process.env.CLIENTES_POOL_ID: " + process.env.CLIENTES_POOL_ID);
+  console.log("process.env.CLIENTES_POOL_CLIENT_ID: " + process.env.CLIENTES_POOL_CLIENT_ID);
+  console.log("process.env.CLIENTES_IDENTITY_POOL_ID: " + process.env.CLIENTES_IDENTITY_POOL_ID);
+
 
   const clientPoolData: UserDataUserPoolType = {
     Username: cpf,

@@ -162,7 +162,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/service-cognito/dev/1699403992431-2023-11-08T00:39:52.431Z/service-cognito.zip"
+          "S3Key": "serverless/service-cognito/dev/1699415478242-2023-11-08T03:51:18.242Z/service-cognito.zip"
         },
         "Handler": "src/functions/validaCadastraCliente.handler",
         "Runtime": "nodejs18.x",
@@ -193,14 +193,14 @@
         "ValidaCadastraClienteLogGroup"
       ]
     },
-    "ValidaCadastraClienteLambdaVersionWnmtpoX4sRYtiKBuYFBQa6Kt6YYX0x1HmKL4rawQ": {
+    "ValidaCadastraClienteLambdaVersionzhFXZeFxG5050ZZYSyGgZ5KY0aW1sQBCoWecvxunk": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "ValidaCadastraClienteLambdaFunction"
         },
-        "CodeSha256": "zRGWl+9AIjk089OQt4/NEXbl+NVEcrtxgHytBCW12C0="
+        "CodeSha256": "usEBkYDzXFcZOuLny0uHDPPu6pQIHuBQW+Ggz7ejPMc="
       }
     },
     "HttpApi": {
@@ -463,7 +463,7 @@
     "ValidaCadastraClienteLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "ValidaCadastraClienteLambdaVersionWnmtpoX4sRYtiKBuYFBQa6Kt6YYX0x1HmKL4rawQ"
+        "Ref": "ValidaCadastraClienteLambdaVersionzhFXZeFxG5050ZZYSyGgZ5KY0aW1sQBCoWecvxunk"
       },
       "Export": {
         "Name": "sls-service-cognito-dev-ValidaCadastraClienteLambdaFunctionQualifiedArn"
