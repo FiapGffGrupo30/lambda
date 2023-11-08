@@ -12,20 +12,14 @@ async function handler (event: APIGatewayEvent) {
   if (!validateCPF(cpf)) {
     return sendResponse(400, 'cpf inválido');
   }
-  
-  console.log("cpf: " + cpf);
-  console.log("process.env.CLIENTES_POOL_ID: " + process.env.CLIENTES_POOL_ID);
+
+  console.log("teste " + process.env.CLIENTES_POOL_ID?.toString);
+  console.log(process.env);
 
   const clientData: UserConfirmationData = {
     Username: cpf,
     UserPoolId: process.env.CLIENTES_POOL_ID
   }
-
-  console.log("cpf: " + cpf);
-  console.log("process.env.CLIENTES_POOL_ID: " + process.env.CLIENTES_POOL_ID);
-  console.log("process.env.CLIENTES_POOL_CLIENT_ID: " + process.env.CLIENTES_POOL_CLIENT_ID);
-  console.log("process.env.CLIENTES_IDENTITY_POOL_ID: " + process.env.CLIENTES_IDENTITY_POOL_ID);
-
 
   const clientPoolData: UserDataUserPoolType = {
     Username: cpf,
@@ -37,12 +31,12 @@ async function handler (event: APIGatewayEvent) {
   try {
     await confirmUser(clientData);
     const result = await authenticateCognitoUser(clientPoolData);
-    return sendResponse(200, result);
+    return sendResponse(401, result);
   } catch (error: unknown) {
     if (error instanceof Error && error.name === 'UserNotFoundException') {
       await createUser(clientData);
       const result = await authenticateCognitoUser(clientPoolData);
-      return sendResponse(200, result);
+      return sendResponse(401, result);
     } else {
       throw new Error(error as string);
     }

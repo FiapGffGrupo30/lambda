@@ -17,7 +17,9 @@
   },
   "scripts": {
     "build": "npx tsc && npx tsc-alias -p tsconfig.json",
-    "lint": "eslint . --ext .ts --fix"
+    "lint": "eslint . --ext .ts --fix",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "debug": "node --inspect node_modules/serverless/bin/serverless offline -s dev"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.125",

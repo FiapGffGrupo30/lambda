@@ -5,12 +5,11 @@ Resources:
       UserPoolName: serverless-auth-pool
       Schema:
         - Name: email
-          Required: true
+          Required: false
           Mutable: true
       Policies:
         PasswordPolicy:
           MinimumLength: 6
-      AutoVerifiedAttributes: ["email"]
 
   UserClient:
     Type: AWS::Cognito::UserPoolClient

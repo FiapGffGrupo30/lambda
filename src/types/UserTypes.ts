@@ -1,8 +1,4 @@
 
-export type AdminUserTypes = {
-  email: string;
-}
-
 export type ClientUserTypes = {
   cpf: string;
 }

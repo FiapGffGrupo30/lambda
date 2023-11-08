@@ -219,7 +219,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/service-cognito/dev/1699415478242-2023-11-08T03:51:18.242Z/service-cognito.zip"
+                "S3Key": "serverless/service-cognito/dev/1699421305328-2023-11-08T05:28:25.328Z/service-cognito.zip"
               },
               "Handler": "src/functions/validaCadastraCliente.handler",
               "Runtime": "nodejs18.x",
@@ -250,14 +250,14 @@
               "ValidaCadastraClienteLogGroup"
             ]
           },
-          "ValidaCadastraClienteLambdaVersionzhFXZeFxG5050ZZYSyGgZ5KY0aW1sQBCoWecvxunk": {
+          "ValidaCadastraClienteLambdaVersion5wBgovyWjEyWAQXxHQYYTMQ9jZqZu92MqsTcKdyqg": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "ValidaCadastraClienteLambdaFunction"
               },
-              "CodeSha256": "usEBkYDzXFcZOuLny0uHDPPu6pQIHuBQW+Ggz7ejPMc="
+              "CodeSha256": "5MAa8XtoXdTwafG7JkvTxV5YzmIGBspwfBgog6aZzuQ="
             }
           },
           "HttpApi": {
@@ -391,7 +391,7 @@
               "Schema": [
                 {
                   "Name": "email",
-                  "Required": true,
+                  "Required": false,
                   "Mutable": true
                 }
               ],
@@ -399,10 +399,7 @@
                 "PasswordPolicy": {
                   "MinimumLength": 6
                 }
-              },
-              "AutoVerifiedAttributes": [
-                "email"
-              ]
+              }
             }
           },
           "UserClient": {
@@ -517,7 +514,7 @@
           "ValidaCadastraClienteLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "ValidaCadastraClienteLambdaVersionzhFXZeFxG5050ZZYSyGgZ5KY0aW1sQBCoWecvxunk"
+              "Ref": "ValidaCadastraClienteLambdaVersion5wBgovyWjEyWAQXxHQYYTMQ9jZqZu92MqsTcKdyqg"
             },
             "Export": {
               "Name": "sls-service-cognito-dev-ValidaCadastraClienteLambdaFunctionQualifiedArn"
@@ -678,7 +675,7 @@
         "timeout": 30,
         "runtime": "nodejs18.x",
         "vpc": {},
-        "versionLogicalId": "ValidaCadastraClienteLambdaVersionzhFXZeFxG5050ZZYSyGgZ5KY0aW1sQBCoWecvxunk"
+        "versionLogicalId": "ValidaCadastraClienteLambdaVersion5wBgovyWjEyWAQXxHQYYTMQ9jZqZu92MqsTcKdyqg"
       }
     },
     "resources": {
@@ -690,7 +687,7 @@
             "Schema": [
               {
                 "Name": "email",
-                "Required": true,
+                "Required": false,
                 "Mutable": true
               }
             ],
@@ -698,10 +695,7 @@
               "PasswordPolicy": {
                 "MinimumLength": 6
               }
-            },
-            "AutoVerifiedAttributes": [
-              "email"
-            ]
+            }
           }
         },
         "UserClient": {
@@ -838,7 +832,7 @@
     "artifact": "/home/lucas/lamba_certo/.build/.serverless/service-cognito.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/service-cognito/dev/1699415478242-2023-11-08T03:51:18.242Z",
+    "artifactDirectoryName": "serverless/service-cognito/dev/1699421305328-2023-11-08T05:28:25.328Z",
     "artifact": "service-cognito.zip"
   }
 }
