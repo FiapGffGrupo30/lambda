@@ -1,9 +1,9 @@
 import { APIGatewayEvent } from 'aws-lambda';
 import { UserConfirmationData, UserDataUserPoolType } from 'types/UserTypes';
 
-import { authenticateCognitoUser } from '../middleware/provider/authenticateUser';
-import { confirmUser } from '../middleware/provider/confirmUser';
-import { createUser } from '../middleware/provider/createUser';
+import { authenticateCognitoUser } from '../middleware/provider/autenticarUsuario';
+import { confirmUser } from '../middleware/provider/confirmarUsuario';
+import { createUser } from '../middleware/provider/CriarUsuario';
 import sendResponse from '../utils/sendResponse';
 import { validateCPF } from '../utils/validateCPF';
 
